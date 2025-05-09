@@ -1,12 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { api } from '../api.js'
 
 let products = ref([])
 
 onMounted(async () => {
     let data = await api("hot-wheels-premium-collection")
-    console.log(data)
+    //console.log(data)
 
     products.value = data.map((item) => {
         let name = item.title.split("*")[0]
